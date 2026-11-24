@@ -1,0 +1,13 @@
+Muhammad Sohaib Javed
+BS Data Science Student
+
+Skills:
+Python, SQL, Power BI, Machine Learning, MS Excel, Data Analysis, Git, Flask
+
+Projects:
+Career Intelligence Dashboard using Flask.
+House Price Prediction using Machine Learning.
+Hospital Management System using SQL.
+
+Education:
+BS Data Science, Superior University Lahore.

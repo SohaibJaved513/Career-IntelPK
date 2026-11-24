@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+    <div class="container">
+        <span class="eyebrow">Job Explorer</span>
+        <h1>Browse Cleaned Job Records</h1>
+        <p>Filter jobs by city or sector and inspect the extracted skill fields.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <form class="filter-bar" method="get">
+            <select name="city" class="form-select">
+                <option value="">All Cities</option>
+                {% for city in filters.cities %}
+                <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+            <select name="sector" class="form-select">
+                <option value="">All Sectors</option>
+                {% for sector in filters.sectors %}
+                <option value="{{ sector }}" {% if sector == selected_sector %}selected{% endif %}>{{ sector }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-main">Apply Filter</button>
+            <a href="/jobs" class="btn btn-soft">Reset</a>
+        </form>
+
+        <div class="row g-4 mt-2">
+            {% for job in jobs %}
+            <div class="col-lg-6">
+                <div class="job-card">
+                    <div class="job-top">
+                        <div>
+                            <h4>{{ job.title }}</h4>
+                            <p>{{ job.company }} · {{ job.city }}</p>
+                        </div>
+                        <span>{{ job.role_category }}</span>
+                    </div>
+                    <p class="job-meta">{{ job.sector }} · {{ job.job_type }} · {{ job.experience_required }} · {{ job.salary_range }}</p>
+                    <div class="skill-cloud">
+                        {% for skill in job.skills_text.split(", ") %}
+                        {% if skill %}
+                        <span>{{ skill }}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="panel"><h4>No jobs found</h4><p>Try a different filter.</p></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

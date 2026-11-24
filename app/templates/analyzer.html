@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head analyzer-head">
+    <div class="container">
+        <span class="eyebrow">CV Skill Gap Analyzer</span>
+        <h1>Compare your CV with market demand</h1>
+        <p>Upload PDF, DOCX, or TXT. The app extracts known market skills and gives a practical learning roadmap.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="upload-panel">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="cv_file" class="form-control" accept=".pdf,.docx,.txt" required>
+                <button class="btn btn-main mt-3">Analyze CV</button>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="row g-4 mt-3">
+            <div class="col-md-4"><div class="mini-stat big"><h3>{{ result.match_score }}%</h3><p>Market Match</p></div></div>
+            <div class="col-md-4"><div class="mini-stat big"><h3>{{ result.best_role }}</h3><p>Best Role</p></div></div>
+            <div class="col-md-4"><div class="mini-stat big"><h3>{{ result.filename }}</h3><p>File Analyzed</p></div></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-6"><div class="panel"><h4>Skills Found in CV</h4><div class="skill-cloud">{% for skill in result.skills %}<span>{{ skill }}</span>{% else %}<p>No matching skills found.</p>{% endfor %}</div></div></div>
+            <div class="col-lg-6"><div class="panel"><h4>Missing High-Demand Skills</h4><div class="skill-cloud missing">{% for skill in result.missing %}<span>{{ skill }}</span>{% else %}<p>No major missing skills found.</p>{% endfor %}</div></div></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-5"><div class="panel"><h4>Role Match Scores</h4>{% for item in result.role_scores %}<div class="metric"><span>{{ item.role }}</span><b>{{ item.score }}%</b></div>{% endfor %}</div></div>
+            <div class="col-lg-7"><div class="panel"><h4>30-Day Roadmap</h4>{% for step in result.roadmap %}<div class="roadmap">{{ step }}</div>{% endfor %}</div></div>
+        </div>
+
+        <div class="panel mt-4">
+            <h4>Relevant Jobs From Dataset</h4>
+            <div class="row g-3">
+                {% for job in result.recommended_jobs %}
+                <div class="col-md-6">
+                    <div class="mini-job">
+                        <b>{{ job.title }}</b>
+                        <p>{{ job.company }} · {{ job.city }} · {{ job.sector }}</p>
+                    </div>
+                </div>
+                {% else %}
+                <p>No directly matched jobs found from extracted skills.</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

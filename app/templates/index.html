@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-7">
+                <span class="eyebrow">Pakistan Job Market Intelligence</span>
+                <h1>Find the skills that matter before applying.</h1>
+                <p class="lead-text">
+                    CareerIntelPK studies a Pakistan job-market dataset, extracts in-demand skills,
+                    shows hiring trends, and compares a student CV with real market needs.
+                </p>
+                <div class="hero-actions">
+                    <a href="/dashboard" class="btn btn-main">View Dashboard</a>
+                    <a href="/analyzer" class="btn btn-soft">Analyze CV</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="glass-card hero-card">
+                    <p class="card-label">Dataset Snapshot</p>
+                    <div class="stat-grid">
+                        <div><h3>{{ data.jobs }}</h3><span>Jobs</span></div>
+                        <div><h3>{{ data.companies }}</h3><span>Companies</span></div>
+                        <div><h3>{{ data.cities }}</h3><span>Cities</span></div>
+                        <div><h3>{{ data.vacancies }}</h3><span>Vacancies</span></div>
+                    </div>
+                    <div class="skill-row">
+                        {% for skill in data.skills %}
+                        <span>{{ skill.skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-dark">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow">Project Modules</span>
+            <h2>Built like a real portfolio product</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="feature"><b>01</b><h4>EDA Dashboard</h4><p>Explore cities, sectors, job types, education levels, salaries, roles, and skills.</p></div></div>
+            <div class="col-md-4"><div class="feature"><b>02</b><h4>Preprocessing Pipeline</h4><p>Cleans city names, salary ranges, skills, dates, vacancies, and role categories.</p></div></div>
+            <div class="col-md-4"><div class="feature"><b>03</b><h4>CV Analyzer</h4><p>Uploads CVs, extracts matching skills, calculates match score, and gives a roadmap.</p></div></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

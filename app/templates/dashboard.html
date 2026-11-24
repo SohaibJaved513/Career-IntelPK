@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+    <div class="container">
+        <span class="eyebrow">EDA Results</span>
+        <h1>Pakistan Job Market Dashboard</h1>
+        <p>Simple analysis from the cleaned Kaggle job-market dataset.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        {% if data %}
+        <div class="row g-4">
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.jobs }}</h3><p>Jobs</p></div></div>
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.companies }}</h3><p>Companies</p></div></div>
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.cities }}</h3><p>Cities</p></div></div>
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.sectors }}</h3><p>Sectors</p></div></div>
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.vacancies }}</h3><p>Vacancies</p></div></div>
+            <div class="col-md-2 col-6"><div class="mini-stat"><h3>{{ data.summary.avg_salary }}</h3><p>Avg Salary</p></div></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-4"><div class="panel"><h4>Top Cities</h4>{% for name, count in data.top_cities %}<div class="metric"><span>{{ name }}</span><b>{{ count }}</b></div>{% endfor %}</div></div>
+            <div class="col-lg-4"><div class="panel"><h4>Top Sectors</h4>{% for name, count in data.top_sectors %}<div class="metric"><span>{{ name }}</span><b>{{ count }}</b></div>{% endfor %}</div></div>
+            <div class="col-lg-4"><div class="panel"><h4>Role Categories</h4>{% for name, count in data.top_roles %}<div class="metric"><span>{{ name }}</span><b>{{ count }}</b></div>{% endfor %}</div></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-5"><div class="panel"><h4>Top Skills</h4><div class="skill-cloud">{% for item in data.top_skills %}<span>{{ item.skill }} <small>{{ item.job_count }}</small></span>{% endfor %}</div></div></div>
+            <div class="col-lg-3"><div class="panel"><h4>Job Types</h4>{% for name, count in data.job_types %}<div class="metric"><span>{{ name }}</span><b>{{ count }}</b></div>{% endfor %}</div></div>
+            <div class="col-lg-4"><div class="panel"><h4>Education Levels</h4>{% for name, count in data.education %}<div class="metric"><span>{{ name }}</span><b>{{ count }}</b></div>{% endfor %}</div></div>
+        </div>
+        {% else %}
+        <div class="panel"><h4>No data found</h4><p>Run python scripts/preprocess_data.py first.</p></div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

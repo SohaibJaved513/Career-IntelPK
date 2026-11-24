@@ -1,0 +1,161 @@
+{
+  "raw_rows": 10500,
+  "clean_rows": 10500,
+  "companies": 185,
+  "cities": 16,
+  "sectors": 13,
+  "unique_skills": 210,
+  "total_vacancies": 32464,
+  "top_cities": [
+    {
+      "city": "Karachi",
+      "job_count": 2249
+    },
+    {
+      "city": "Lahore",
+      "job_count": 2062
+    },
+    {
+      "city": "Islamabad",
+      "job_count": 1556
+    },
+    {
+      "city": "Rawalpindi",
+      "job_count": 759
+    },
+    {
+      "city": "Faisalabad",
+      "job_count": 629
+    },
+    {
+      "city": "Peshawar",
+      "job_count": 610
+    },
+    {
+      "city": "Multan",
+      "job_count": 540
+    },
+    {
+      "city": "Sialkot",
+      "job_count": 427
+    }
+  ],
+  "top_sectors": [
+    {
+      "sector": "IT & Technology",
+      "job_count": 1889
+    },
+    {
+      "sector": "Banking & Finance",
+      "job_count": 1130
+    },
+    {
+      "sector": "Education",
+      "job_count": 1070
+    },
+    {
+      "sector": "Healthcare",
+      "job_count": 939
+    },
+    {
+      "sector": "E-commerce & Retail",
+      "job_count": 811
+    },
+    {
+      "sector": "Telecom",
+      "job_count": 713
+    },
+    {
+      "sector": "Government & Public",
+      "job_count": 700
+    },
+    {
+      "sector": "Manufacturing",
+      "job_count": 700
+    }
+  ],
+  "top_roles": [
+    {
+      "role_category": "Other",
+      "job_count": 5333
+    },
+    {
+      "role_category": "Software Development",
+      "job_count": 1742
+    },
+    {
+      "role_category": "Data / BI Analyst",
+      "job_count": 816
+    },
+    {
+      "role_category": "Technology",
+      "job_count": 599
+    },
+    {
+      "role_category": "Marketing & Sales",
+      "job_count": 574
+    },
+    {
+      "role_category": "Finance",
+      "job_count": 558
+    },
+    {
+      "role_category": "Healthcare",
+      "job_count": 433
+    },
+    {
+      "role_category": "AI & Data Science",
+      "job_count": 231
+    }
+  ],
+  "top_skills": [
+    {
+      "skill": "MS Excel",
+      "job_count": 1195
+    },
+    {
+      "skill": "MS Office",
+      "job_count": 1025
+    },
+    {
+      "skill": "Data Analysis",
+      "job_count": 709
+    },
+    {
+      "skill": "AutoCAD",
+      "job_count": 669
+    },
+    {
+      "skill": "SPSS",
+      "job_count": 554
+    },
+    {
+      "skill": "Supply Chain",
+      "job_count": 494
+    },
+    {
+      "skill": "Report Writing",
+      "job_count": 464
+    },
+    {
+      "skill": "Communication",
+      "job_count": 433
+    },
+    {
+      "skill": "Budget Management",
+      "job_count": 425
+    },
+    {
+      "skill": "LMS Administration",
+      "job_count": 418
+    },
+    {
+      "skill": "Facebook Ads",
+      "job_count": 413
+    },
+    {
+      "skill": "Language Skills",
+      "job_count": 410
+    }
+  ]
+}

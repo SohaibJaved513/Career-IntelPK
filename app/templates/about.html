@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-head">
+    <div class="container">
+        <span class="eyebrow">Project Case Study</span>
+        <h1>How CareerIntelPK was built</h1>
+        <p>A simple student portfolio project using Python, Flask, EDA, preprocessing, and CV skill-gap analysis.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4"><div class="feature"><b>Problem</b><h4>Students apply blindly</h4><p>Many students do not know which skills are repeatedly demanded in job listings.</p></div></div>
+            <div class="col-lg-4"><div class="feature"><b>Dataset</b><h4>Pakistan job market CSV</h4><p>The uploaded Kaggle CSV was cleaned, analyzed, and converted into dashboard-ready files.</p></div></div>
+            <div class="col-lg-4"><div class="feature"><b>Solution</b><h4>Market + CV matching</h4><p>The app compares CV skills with top market skills and recommends a learning roadmap.</p></div></div>
+        </div>
+
+        <div class="panel mt-4">
+            <h4>Pipeline</h4>
+            <p>Raw CSV → Data cleaning → Salary parsing → Skill splitting → Role classification → EDA files → Flask dashboard → CV Analyzer.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
